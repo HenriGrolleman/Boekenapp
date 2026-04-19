@@ -1,0 +1,367 @@
+:root {
+  --bg: #f4efe7;
+  --bg-strong: #efe4d4;
+  --surface: rgba(255, 252, 247, 0.78);
+  --surface-strong: rgba(255, 248, 238, 0.95);
+  --line: rgba(92, 65, 34, 0.16);
+  --text: #22170d;
+  --muted: #6e5a49;
+  --accent: #0f766e;
+  --accent-soft: rgba(15, 118, 110, 0.12);
+  --danger: #9a3412;
+  --shadow: 0 24px 70px rgba(53, 32, 15, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.65), transparent 32%),
+    linear-gradient(180deg, #f8f3eb 0%, var(--bg) 58%, #eadbc5 100%);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+  border-radius: 999px;
+  background: var(--text);
+  color: #fffaf4;
+  padding: 0.9rem 1.1rem;
+  transition: transform 140ms ease, opacity 140ms ease, background 140ms ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+button.secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--line);
+}
+
+button.accent {
+  background: var(--accent);
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--text);
+  padding: 0.95rem 1rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.page-shell {
+  width: min(1200px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 1.5rem 0 2.5rem;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 2.1fr 1fr;
+  gap: 1.5rem;
+  align-items: end;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 32px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.62), rgba(255, 247, 233, 0.85)),
+    linear-gradient(120deg, rgba(15, 118, 110, 0.08), transparent 45%);
+  box-shadow: var(--shadow);
+}
+
+.eyebrow,
+.kicker {
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.74rem;
+  color: var(--muted);
+}
+
+.hero h1,
+.panel-header h2,
+.library-head h2 {
+  margin: 0;
+  font-family: "Palatino Linotype", "Book Antiqua", serif;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.hero h1 {
+  max-width: 11ch;
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+}
+
+.hero-text {
+  max-width: 38rem;
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.hero-stats {
+  display: grid;
+  gap: 1rem;
+  padding: 1.2rem;
+  border-radius: 24px;
+  background: rgba(34, 23, 13, 0.92);
+  color: #fff8f1;
+}
+
+.hero-stats strong {
+  display: block;
+  font-size: 2rem;
+  margin-top: 0.2rem;
+}
+
+.stat-label {
+  color: rgba(255, 248, 241, 0.7);
+  font-size: 0.85rem;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(320px, 380px) minmax(0, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.workspace,
+.library {
+  display: grid;
+  gap: 1rem;
+}
+
+.panel,
+.library {
+  padding: 1.4rem;
+  border-radius: 28px;
+  background: var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+}
+
+.panel-header {
+  margin-bottom: 1rem;
+}
+
+.panel-header h2,
+.library-head h2 {
+  font-size: 1.9rem;
+}
+
+.stack-form {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.stack-form label,
+.finish-form label {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.stack-form span,
+.finish-form span {
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.feedback {
+  min-height: 1.5rem;
+  margin: 0.9rem 0 0;
+  color: var(--muted);
+}
+
+.feedback.success {
+  color: var(--accent);
+}
+
+.feedback.error {
+  color: var(--danger);
+}
+
+.library-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: end;
+  margin-bottom: 1rem;
+}
+
+.library-note {
+  max-width: 24rem;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.book-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.book-item {
+  display: grid;
+  gap: 1rem;
+  padding: 1.1rem 0 0;
+  border-top: 1px solid var(--line);
+  animation: rise-in 320ms ease;
+}
+
+.book-item:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.book-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: start;
+}
+
+.book-title {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.book-author,
+.book-detail,
+.empty-state {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+}
+
+.book-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: var(--bg-strong);
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.book-status.reading {
+  background: rgba(15, 118, 110, 0.14);
+  color: var(--accent);
+}
+
+.book-status.finished {
+  background: rgba(34, 23, 13, 0.12);
+}
+
+.book-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.finish-form {
+  display: grid;
+  gap: 0.8rem;
+  padding: 1rem;
+  border-radius: 20px;
+  background: var(--surface-strong);
+  border: 1px solid var(--line);
+}
+
+.review-block {
+  padding: 1rem 1.1rem;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(92, 65, 34, 0.08);
+}
+
+.stars {
+  letter-spacing: 0.08em;
+  font-size: 1.05rem;
+}
+
+.empty-state {
+  padding: 1rem 0;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 920px) {
+  .hero,
+  .layout,
+  .library-head,
+  .book-meta {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .hero-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .library-head,
+  .book-meta {
+    gap: 0.8rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-shell {
+    width: min(100% - 1rem, 100%);
+    padding-top: 0.5rem;
+  }
+
+  .hero,
+  .panel,
+  .library {
+    border-radius: 24px;
+    padding: 1.1rem;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 2.7rem;
+  }
+}

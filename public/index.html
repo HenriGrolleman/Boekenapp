@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boekenregister</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Persoonlijke bibliotheek</p>
+          <h1>Houd bij wat je koopt, leest en onthoudt.</h1>
+          <p class="hero-text">
+            Eén plek om te controleren of een boek al in je kast staat, nieuwe
+            aankopen toe te voegen en je leeservaring vast te leggen.
+          </p>
+        </div>
+        <div class="hero-stats" id="stats">
+          <div>
+            <span class="stat-label">Totaal</span>
+            <strong id="total-count">0</strong>
+          </div>
+          <div>
+            <span class="stat-label">Aan het lezen</span>
+            <strong id="reading-count">0</strong>
+          </div>
+          <div>
+            <span class="stat-label">Uitgelezen</span>
+            <strong id="finished-count">0</strong>
+          </div>
+        </div>
+      </header>
+
+      <main class="layout">
+        <aside class="workspace">
+          <section class="panel">
+            <div class="panel-header">
+              <p class="kicker">Actie 1</p>
+              <h2>Check of je het boek al hebt</h2>
+            </div>
+            <form id="check-form" class="stack-form">
+              <label>
+                <span>Titel</span>
+                <input type="text" name="title" placeholder="Bijv. Sapiens" required />
+              </label>
+              <label>
+                <span>Auteur</span>
+                <input type="text" name="author" placeholder="Bijv. Yuval Noah Harari" required />
+              </label>
+              <button type="submit">Controleren</button>
+            </form>
+            <p id="check-result" class="feedback" aria-live="polite"></p>
+          </section>
+
+          <section class="panel">
+            <div class="panel-header">
+              <p class="kicker">Actie 2</p>
+              <h2>Voeg een nieuw boek toe</h2>
+            </div>
+            <form id="add-form" class="stack-form">
+              <label>
+                <span>Titel</span>
+                <input type="text" name="title" placeholder="Titel van het boek" required />
+              </label>
+              <label>
+                <span>Auteur</span>
+                <input type="text" name="author" placeholder="Naam van de auteur" required />
+              </label>
+              <label>
+                <span>Aankoopdatum</span>
+                <input type="date" name="purchase_date" />
+              </label>
+              <button type="submit">Opslaan in de lijst</button>
+            </form>
+            <p id="add-result" class="feedback" aria-live="polite"></p>
+          </section>
+        </aside>
+
+        <section class="library">
+          <div class="library-head">
+            <div>
+              <p class="eyebrow">Actie 3 en 4</p>
+              <h2>Je boekenoverzicht</h2>
+            </div>
+            <p class="library-note">
+              Gebruik per boek de knoppen om het op "aan het lezen" te zetten of
+              het af te ronden met sterren en een korte indruk.
+            </p>
+          </div>
+          <div id="book-list" class="book-list"></div>
+        </section>
+      </main>
+    </div>
+
+    <template id="finish-template">
+      <form class="finish-form">
+        <label>
+          <span>Rating</span>
+          <select name="rating" required>
+            <option value="5">5 sterren</option>
+            <option value="4">4 sterren</option>
+            <option value="3">3 sterren</option>
+            <option value="2">2 sterren</option>
+            <option value="1">1 ster</option>
+          </select>
+        </label>
+        <label>
+          <span>Korte omschrijving</span>
+          <textarea
+            name="review"
+            rows="3"
+            maxlength="280"
+            placeholder="Wat vond je van dit boek?"
+            required
+          ></textarea>
+        </label>
+        <button type="submit">Opslaan als uitgelezen</button>
+      </form>
+    </template>
+
+    <script src="/app.js" defer></script>
+  </body>
+  </html>
