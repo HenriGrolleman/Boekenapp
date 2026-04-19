@@ -1,0 +1,22 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/api/books/:id/reading",
+      "destination": "/api/book_status.py?action=reading&id=:id"
+    },
+    {
+      "source": "/api/books/:id/finish",
+      "destination": "/api/book_status.py?action=finish&id=:id"
+    },
+    {
+      "source": "/api/check-book",
+      "destination": "/api/check_book.py"
+    },
+    {
+      "source": "/api/books",
+      "destination": "/api/books.py"
+    }
+  ]
+}
