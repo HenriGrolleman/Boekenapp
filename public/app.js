@@ -15,7 +15,20 @@ async function requestJson(url, options = {}) {
     ...options,
   });
 
-  const payload = await response.json();
+  const raw = await response.text();
+  let payload;
+
+  try {
+    payload = raw ? JSON.parse(raw) : {};
+  } catch {
+    const snippet = raw.slice(0, 120).trim();
+    throw new Error(
+      snippet
+        ? `Server gaf geen geldige JSON terug: ${snippet}`
+        : "Server gaf geen geldige JSON terug.",
+    );
+  }
+
   if (!response.ok) {
     throw new Error(payload.error || "Er ging iets mis.");
   }
